@@ -1,0 +1,21 @@
+<decoder name="unifi-custom">
+  <program_name>^202</program_name>
+</decoder>
+
+<decoder name="unifi-custom-fields">
+  <parent>unifi-custom</parent>
+  <regex type="pcre2">CEF:0\|Ubiquiti\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|</regex>
+  <order>unifi.product, unifi.version, unifi.event_id, unifi.event_name, unifi.severity</order>
+</decoder>
+
+<decoder name="unifi-custom-msg">
+  <parent>unifi-custom</parent>
+  <regex type="pcre2">msg=(.+)</regex>
+  <order>unifi.message</order>
+</decoder>
+
+<decoder name="unifi-custom-ip">
+  <parent>unifi-custom</parent>
+  <regex type="pcre2">UNIFIdeviceIp=(\S+)</regex>
+  <order>srcip</order>
+</decoder>
