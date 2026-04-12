@@ -1,0 +1,12 @@
+<group name="unifi,">
+  <rule id="100010" level="3">
+    <decoded_as>unifi-custom</decoded_as>
+    <description>Unifi Network Event: $(unifi.event_name)</description>
+  </rule>
+
+  <rule id="100011" level="3">
+    <if_sid>100010</if_sid>
+    <match>Test Syslog</match>
+    <description>Unifi Test Syslog received successfully.</description>
+  </rule>
+</group>
